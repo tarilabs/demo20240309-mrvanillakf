@@ -1,0 +1,20 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    openshift.io/display-name: example
+    serving.kserve.io/deploymentMode: ModelMesh
+  name: example
+  namespace: ds-mre2e
+  labels:
+    opendatahub.io/dashboard: 'true'
+spec:
+  predictor:
+    model:
+      modelFormat:
+        name: onnx
+        version: '1'
+      name: ''
+      resources: {}
+      runtime: mmserver1
+      storageUri: https://github.com/tarilabs/demo20231212/blob/main/v1.nb20231206162408/mnist.onnx?raw=true
