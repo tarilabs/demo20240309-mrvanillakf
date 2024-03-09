@@ -1,0 +1,15 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    sidecar.istio.io/inject: 'false'
+  name: mnist
+  namespace: kubeflow-user-example-com
+spec:
+  predictor:
+    model:
+      modelFormat:
+        name: onnx
+        version: '1'
+      protocolVersion: v2
+      storageUri: https://huggingface.co/tarilabs/mnist/resolve/v20231206163028/mnist.onnx

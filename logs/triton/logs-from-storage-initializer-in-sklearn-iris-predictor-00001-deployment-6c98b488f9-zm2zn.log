@@ -1,0 +1,39 @@
+INFO:root:Initializing, args: src_uri [gs://kfserving-samples/models/sklearn/iris] dest_path[ [/mnt/models]
+INFO:root:Copying contents of gs://kfserving-samples/models/sklearn/iris to local
+WARNING:google.auth.compute_engine._metadata:Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+WARNING:google.auth.compute_engine._metadata:Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+WARNING:google.auth.compute_engine._metadata:Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: timed out
+WARNING:google.auth._default:Authentication failed using Compute Engine authentication due to unavailable metadata server.
+INFO:google.auth.transport.requests:Refreshing credentials due to a 401 response. Attempt 1/2.
+Traceback (most recent call last):
+  File "/storage-initializer/scripts/initializer-entrypoint", line 15, in <module>
+    Storage.download(src_uri, dest_path)
+  File "/kserve/kserve/storage/storage.py", line 81, in download
+    Storage._download_gcs(uri, out_dir)
+  File "/kserve/kserve/storage/storage.py", line 244, in _download_gcs
+    for blob in blobs:
+  File "/prod_venv/lib/python3.9/site-packages/google/api_core/page_iterator.py", line 208, in _items_iter
+    for page in self._page_iter(increment=False):
+  File "/prod_venv/lib/python3.9/site-packages/google/api_core/page_iterator.py", line 244, in _page_iter
+    page = self._next_page()
+  File "/prod_venv/lib/python3.9/site-packages/google/api_core/page_iterator.py", line 373, in _next_page
+    response = self._get_next_page_response()
+  File "/prod_venv/lib/python3.9/site-packages/google/api_core/page_iterator.py", line 432, in _get_next_page_response
+    return self.api_request(
+  File "/prod_venv/lib/python3.9/site-packages/google/cloud/storage/_http.py", line 80, in api_request
+    return call()
+  File "/prod_venv/lib/python3.9/site-packages/google/api_core/retry.py", line 349, in retry_wrapped_func
+    return retry_target(
+  File "/prod_venv/lib/python3.9/site-packages/google/api_core/retry.py", line 191, in retry_target
+    return target()
+  File "/prod_venv/lib/python3.9/site-packages/google/cloud/_http/__init__.py", line 482, in api_request
+    response = self._make_request(
+  File "/prod_venv/lib/python3.9/site-packages/google/cloud/_http/__init__.py", line 341, in _make_request
+    return self._do_request(
+  File "/prod_venv/lib/python3.9/site-packages/google/cloud/_http/__init__.py", line 379, in _do_request
+    return self.http.request(
+  File "/prod_venv/lib/python3.9/site-packages/google/auth/transport/requests.py", line 585, in request
+    self.credentials.refresh(auth_request)
+  File "/prod_venv/lib/python3.9/site-packages/google/auth/credentials.py", line 213, in refresh
+    raise exceptions.InvalidOperation("Anonymous credentials cannot be refreshed.")
+google.auth.exceptions.InvalidOperation: Anonymous credentials cannot be refreshed.

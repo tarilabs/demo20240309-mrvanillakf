@@ -1,0 +1,62 @@
+
+=============================
+== Triton Inference Server ==
+=============================
+
+NVIDIA Release 23.05 (build 61161506)
+Triton Server Version 2.34.0
+
+Copyright (c) 2018-2023, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+W0309 15:53:26.232206 1 pinned_memory_manager.cc:236] Unable to allocate pinned system memory, pinned memory pool will not be available: CUDA driver version is insufficient for CUDA runtime version
+I0309 15:53:26.232319 1 cuda_memory_manager.cc:115] CUDA memory pool disabled
+I0309 15:53:26.232705 1 server.cc:582] 
++------------------+------+
+| Repository Agent | Path |
++------------------+------+
++------------------+------+
+
+I0309 15:53:26.232724 1 server.cc:609] 
++---------+------+--------+
+| Backend | Path | Config |
++---------+------+--------+
++---------+------+--------+
+
+I0309 15:53:26.232739 1 server.cc:652] 
++-------+---------+--------+
+| Model | Version | Status |
++-------+---------+--------+
++-------+---------+--------+
+
+I0309 15:53:26.233001 1 metrics.cc:701] Collecting CPU metrics
+I0309 15:53:26.233152 1 tritonserver.cc:2385] 
++----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Option                           | Value                                                                                                                                                                                                           |
++----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| server_id                        | triton                                                                                                                                                                                                          |
+| server_version                   | 2.34.0                                                                                                                                                                                                          |
+| server_extensions                | classification sequence model_repository model_repository(unload_dependents) schedule_policy model_configuration system_shared_memory cuda_shared_memory binary_tensor_data parameters statistics trace logging |
+| model_repository_path[0]         | /mnt/models                                                                                                                                                                                                     |
+| model_control_mode               | MODE_NONE                                                                                                                                                                                                       |
+| strict_model_config              | 0                                                                                                                                                                                                               |
+| rate_limit                       | OFF                                                                                                                                                                                                             |
+| pinned_memory_pool_byte_size     | 268435456                                                                                                                                                                                                       |
+| min_supported_compute_capability | 6.0                                                                                                                                                                                                             |
+| strict_readiness                 | 1                                                                                                                                                                                                               |
+| exit_timeout                     | 30                                                                                                                                                                                                              |
+| cache_enabled                    | 0                                                                                                                                                                                                               |
++----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+I0309 15:53:26.234849 1 grpc_server.cc:2450] Started GRPCInferenceService at 0.0.0.0:9000
+I0309 15:53:26.235032 1 http_server.cc:3555] Started HTTPService at 0.0.0.0:8080
+I0309 15:53:26.276191 1 http_server.cc:185] Started Metrics Service at 0.0.0.0:8002
