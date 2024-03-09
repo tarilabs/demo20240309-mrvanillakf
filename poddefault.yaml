@@ -1,0 +1,12 @@
+apiVersion: kubeflow.org/v1alpha1
+kind: PodDefault
+metadata:
+  name: add-minio-secret
+  namespace: kubeflow-user-example-com
+spec:
+  envFrom:
+    - secretRef:
+        name: mlpipeline-minio-artifact
+  selector:
+    matchLabels:
+      add-minio-secret: 'true'
