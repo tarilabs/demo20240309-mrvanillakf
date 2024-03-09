@@ -4,7 +4,7 @@ Connect to cluster: https://github.com/kubeflow/manifests?tab=readme-ov-file#con
 Deployed poddefault.yaml
 
 Used at the time of writing:
-- kubeflownotebookswg/jupyter-tensorflow-full:v1.8.0-rc.6
+- `kubeflownotebookswg/jupyter-tensorflow-full:v1.8.0-rc.6`
 - cpu 8
 - ram 16
 - mounted poddefault for miniosecret
