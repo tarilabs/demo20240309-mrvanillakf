@@ -1,5 +1,13 @@
 Deployed a vanilla KF in Minikube (or else)
 
+Remember to verify:
+```
+sudo sysctl fs.inotify.max_user_instances=2280
+sudo sysctl fs.inotify.max_user_watches=1255360
+minikube start
+minikube dashboard
+```
+
 # port fwd checklist
 ```
 kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
@@ -25,7 +33,7 @@ kubectl port-forward svc/model-registry-service -n kubeflow 8081:8080
 ```
 
 ```
-curl -X 'GET' \
+curl -s -X 'GET' \
   'http://localhost:8081/api/model_registry/v1alpha2/registered_models?pageSize=100&orderBy=ID&sortOrder=DESC' \
-  -H 'accept: application/json'
+  -H 'accept: application/json' | jq
 ```
