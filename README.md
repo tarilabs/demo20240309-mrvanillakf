@@ -2,6 +2,7 @@ Deployed a vanilla KF in Minikube (or else)
 
 Remember to verify:
 ```
+sudo systemctl start docker
 sudo sysctl fs.inotify.max_user_instances=2280
 sudo sysctl fs.inotify.max_user_watches=1255360
 minikube start
